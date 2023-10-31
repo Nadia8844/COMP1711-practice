@@ -53,11 +53,12 @@ int main() {
     char line_buffer[buffer_size];
     FITNESS_DATA fitnessDataArray[MAX_RECORDS];
     int dataCount = 0;
+        
+    char date[11];
+    char time[6];
+    char steps[10];
 
     while (fgets(line_buffer, buffer_size, file) != NULL) {
-        char date[11];
-        char time[6];
-        char steps[10];
         
         tokeniseRecord(line_buffer, ",", date, time, steps);
 
@@ -67,12 +68,14 @@ int main() {
         data.steps = atoi(steps);
         fitnessDataArray[dataCount] = data;
         dataCount++;
-        }
- 
-         for (int i = 0; i < dataCount; i++) {
-        printf("%s,%s,%d\n", fitnessDataArray[i].date, fitnessDataArray[i].time, fitnessDataArray[i].steps);
-         }
+    }
 
+        printf("Number of records in file: %d\n", dataCount);
+
+        for (int i = 0; i < dataCount; i++) {
+        printf("%s/%s/%d\n", fitnessDataArray[i].date, fitnessDataArray[i].time, fitnessDataArray[i].steps);
+        }
+    
 
     fclose(file);
     return 0;
