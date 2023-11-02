@@ -51,7 +51,7 @@ int main() {
 
     const int buffer_size = 100;
     char line_buffer[buffer_size];
-    FITNESS_DATA fitnessDataArray[MAX_RECORDS];
+    FITNESS_DATA fitnessdata[MAX_RECORDS];
     int dataCount = 0;
         
     char date[11];
@@ -67,14 +67,14 @@ int main() {
         strcpy(data.date, date);
         strcpy(data.time, time);
         data.steps = atoi(steps);
-        fitnessDataArray[dataCount] = data;
+        fitnessdata[dataCount] = data;
         dataCount++;
     }
 
         printf("Number of records in file: %d\n", dataCount);
 
         for (int i = 0; i < 3; i++) {
-        printf("%s/%s/%d\n", fitnessDataArray[i].date, fitnessDataArray[i].time, fitnessDataArray[i].steps);
+        printf("%s/%s/%d\n", fitnessdata[i].date, fitnessdata[i].time, fitnessdata[i].steps);
         }
     
 
