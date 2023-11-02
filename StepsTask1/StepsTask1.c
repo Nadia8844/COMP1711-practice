@@ -60,6 +60,7 @@ int main() {
 
     while (fgets(line_buffer, buffer_size, file) != NULL) {
         
+        
         tokeniseRecord(line_buffer, ",", date, time, steps);
 
         FITNESS_DATA data;
@@ -72,7 +73,7 @@ int main() {
 
         printf("Number of records in file: %d\n", dataCount);
 
-        for (int i = 0; i < dataCount; i++) {
+        for (int i = 0; i < 3; i++) {
         printf("%s/%s/%d\n", fitnessDataArray[i].date, fitnessDataArray[i].time, fitnessDataArray[i].steps);
         }
     
